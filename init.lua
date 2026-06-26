@@ -600,7 +600,7 @@ do
   --  See `:help lsp-config` for information about keys and how to configure
   ---@type table<string, vim.lsp.Config>
   local servers = {
-    -- clangd = {},
+    clangd = {},
     -- gopls = {},
     pyright = {},
     -- rust_analyzer = {},
@@ -609,7 +609,21 @@ do
     --    https://github.com/pmizio/typescript-tools.nvim
     --
     -- But for many setups, the LSP (`ts_ls`) will work just fine
-    -- ts_ls = {},
+    ts_ls = {},
+
+    angularls = {
+      cmd = (function()
+        local mason_path = vim.fn.stdpath 'data' .. '/mason/packages'
+        return {
+          'ngserver',
+          '--stdio',
+          '--tsProbeLocations',
+          mason_path .. '/typescript-language-server/node_modules/typescript/lib',
+          '--ngProbeLocations',
+          mason_path .. '/angular-language-server/node_modules/@angular/language-server',
+        }
+      end)(),
+    },
 
     stylua = {}, -- Used to format Lua code
 
