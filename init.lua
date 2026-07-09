@@ -611,6 +611,10 @@ do
     -- But for many setups, the LSP (`ts_ls`) will work just fine
     ts_ls = {},
 
+    html = {},
+
+    cssls = {},
+
     angularls = {
       cmd = (function()
         local mason_path = vim.fn.stdpath 'data' .. '/mason/packages'
