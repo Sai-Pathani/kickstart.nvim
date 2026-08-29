@@ -719,6 +719,7 @@ do
       local enabled_filetypes = {
         typescript = true,
         javascript = true,
+        markdown = true,
         lua = true,
         python = true,
       }
@@ -739,6 +740,7 @@ do
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
+      markdown = { 'prettierd', 'prettier', stop_after_first = true },
     },
   }
 
