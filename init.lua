@@ -695,6 +695,7 @@ do
     'black',
     'isort',
     'prettier',
+    'eslint_d',
   })
 
   require('mason-tool-installer').setup { ensure_installed = ensure_installed }
