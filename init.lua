@@ -1,5 +1,3 @@
--- ============================================================
--- SECTION 1: OPTIONS
 -- Core Neovim settings, leaders, options, basic keymaps, basic autocmds
 -- ============================================================
 do
@@ -697,6 +695,7 @@ do
     'prettier',
     'eslint_d',
     'markdownlint',
+    'clang-format',
   })
 
   require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -724,6 +723,7 @@ do
         markdown = true,
         lua = true,
         python = true,
+        c = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
         return { timeout_ms = 500 }
@@ -743,6 +743,7 @@ do
       -- You can use 'stop_after_first' to run the first available formatter from the list
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       markdown = { 'prettierd', 'prettier', stop_after_first = true },
+      c = { 'clang-format' },
     },
   }
 
