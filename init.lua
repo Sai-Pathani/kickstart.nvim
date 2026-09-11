@@ -692,6 +692,7 @@ do
     -- You can add other tools here that you want Mason to install
     'black',
     'isort',
+    'prettierd',
     'prettier',
     'eslint_d',
     'markdownlint',
@@ -719,7 +720,11 @@ do
       -- You can specify filetypes to autoformat on save here:
       local enabled_filetypes = {
         typescript = true,
+        typescriptreact = true,
         javascript = true,
+        javascriptreact = true,
+        html = true,
+        css = true,
         markdown = true,
         lua = true,
         python = true,
@@ -741,7 +746,12 @@ do
       python = { 'isort', 'black' },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
+      typescript = { 'prettierd', 'prettier', stop_after_first = true },
+      typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
+      javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+      html = { 'prettierd', 'prettier', stop_after_first = true },
+      css = { 'prettierd', 'prettier', stop_after_first = true },
       markdown = { 'prettierd', 'prettier', stop_after_first = true },
       c = { 'clang-format' },
     },
