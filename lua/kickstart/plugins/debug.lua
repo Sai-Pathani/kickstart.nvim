@@ -28,6 +28,32 @@ vim.keymap.set('n', '<F7>', function() require('dapui').toggle() end, { desc = '
 local dap = require 'dap'
 local dapui = require 'dapui'
 
+-- JavaScript and TypeScript debugging via vscode-js-debug.
+dap.adapters['pwa-node'] = {
+  type = 'server',
+  host = 'localhost',
+  port = '${port}',
+  executable = {
+    command = 'node',
+    args = {
+      vim.fn.stdpath('data') .. '/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js',
+      '${port}',
+    },
+  },
+}
+
+for _, filetype in ipairs { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' } do
+  dap.configurations[filetype] = {
+    {
+      type = 'pwa-node',
+      request = 'launch',
+      name = 'Launch current file',
+      program = '${file}',
+      cwd = '${workspaceFolder}',
+    },
+  }
+end
+
 require('mason-nvim-dap').setup {
   -- Makes a best effort to setup the various debuggers with
   -- reasonable debug configurations
@@ -42,6 +68,7 @@ require('mason-nvim-dap').setup {
   ensure_installed = {
     -- Update this to ensure that you have the debuggers for the langs you want
     'delve',
+    'js-debug-adapter',
   },
 }
 
