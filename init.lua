@@ -619,6 +619,8 @@ do
 
     cssls = {},
 
+    tailwindcss = {},
+
     angularls = {
       cmd = (function()
         local mason_path = vim.fn.stdpath 'data' .. '/mason/packages'
