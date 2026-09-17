@@ -731,6 +731,7 @@ do
         lua = true,
         python = true,
         c = true,
+        htmlangular = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
         return { timeout_ms = 500 }
@@ -756,6 +757,7 @@ do
       css = { 'prettierd', 'prettier', stop_after_first = true },
       markdown = { 'prettierd', 'prettier', stop_after_first = true },
       c = { 'clang-format' },
+      htmlangular = { 'prettierd', 'prettier', stop_after_first = true },
     },
   }
 
