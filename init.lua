@@ -617,6 +617,8 @@ do
 
     html = {},
 
+    svelte = {},
+
     cssls = {},
 
     tailwindcss = {},
@@ -725,6 +727,7 @@ do
         typescriptreact = true,
         javascript = true,
         javascriptreact = true,
+        svelte = true,
         html = true,
         css = true,
         markdown = true,
@@ -753,6 +756,7 @@ do
       typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+      svelte = { 'prettierd', 'prettier', stop_after_first = true },
       html = { 'prettierd', 'prettier', stop_after_first = true },
       css = { 'prettierd', 'prettier', stop_after_first = true },
       markdown = { 'prettierd', 'prettier', stop_after_first = true },
@@ -860,7 +864,7 @@ do
   vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
   -- Ensure basic parsers are installed
-  local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+  local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'svelte', 'vim', 'vimdoc' }
   require('nvim-treesitter').install(parsers)
 
   ---@param buf integer
